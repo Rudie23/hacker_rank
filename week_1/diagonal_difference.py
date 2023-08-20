@@ -15,6 +15,9 @@ absolute difference is |15 - 17| = 2
     >>> test2 = [[1, 2, 3], [4, 5, 6], [9, 8 , 9]]
     >>> diagonal(test2)
     2
+    >>> test2 = [[1, 2, 3], [4, 5, 6], [9, 8 , 9]]
+    >>> diagonal_in_pythonic(test2)
+    2
 """
 from typing import List
 
@@ -50,4 +53,14 @@ def diagonal(arr: List) -> int:
     return sum_lists
 
 
-diagonal(lista)
+print(diagonal(lista))
+
+
+def diagonal_in_pythonic(matrix: List) -> int:
+    left = sum(row[i] for i, row in enumerate(matrix))
+    right = sum(row[-j-1] for j, row in enumerate(matrix))
+    value_abs = abs(left - right)
+    return value_abs
+
+
+print(diagonal_in_pythonic(lista))
