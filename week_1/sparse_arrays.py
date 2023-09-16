@@ -18,4 +18,19 @@ matchingStrings has the following parameters:
 
 Returns
     int[q]: an array of results for each query
+    >>> strings, queries  = ['ab', 'ab', 'abc'], ['ab', 'abc', 'bc']
+    >>> matching_string(strings, queries)
+    [2, 1, 0]
 """
+from typing import List
+
+
+def matching_string(strings: List, queries: List):
+    count = {}
+    for s in strings:
+        count[s] = count.get(s, 0) + 1
+    return [count.get(query, 0) for query in queries]
+
+
+x = matching_string(['ab', 'ab', 'abc'], ['ab', 'abc', 'bc'])
+print(x)

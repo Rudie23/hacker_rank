@@ -4,6 +4,7 @@ To access the website, click in this [link](https://www.hackerrank.com/dashboard
 ## To create a python virtual environment and execute it
 ```sh
 python -m venv .venv --upgrade-deps && source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
 ## Testing in local environment 
