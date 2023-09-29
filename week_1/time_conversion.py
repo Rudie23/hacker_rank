@@ -14,28 +14,13 @@ Example:
 """
 
 
-def conversion(time: str) -> str:
-    hour_string = time[:2]
-    minutes_string = time[2:]
-    hour_number = int(hour_string)
-    if time[-2:] == "AM":
-        if hour_number >= 12:
-            hour_string = "00"
-            time_final = hour_string + minutes_string
-            time_am = time_final[:-2]
-        else:
-            time_am = time[:-2]
-        return time_am
-
-    elif time[-2:] == "PM":
-        if 12 > hour_number > 0:
-            hour_number = hour_number + 12
-            hour_string = str(hour_number)
-            time_final = hour_string + minutes_string
-            time_pm = time_final[:-2]
-        else:
-            time_pm = time[:-2]
-        return time_pm
+def conversion(s: str) -> str:
+    am_pm = s[-2:]
+    if am_pm == 'PM' and s[:2] != '12':
+        s = str(12 + int(s[:2])) + s[2:]
+    elif am_pm == 'AM' and s[:2] == '12':
+        s = '00' + s[2:]
+    return s[:-2]
 
 
 print(conversion('12:45:00PM'))
