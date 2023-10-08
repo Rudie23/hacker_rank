@@ -61,20 +61,20 @@ Each of the resulting values result[i]
 represents the number of times i appeared in arr.
 
 """
+from typing import List
 
-arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10]
+
+arr1 = [1, 3, 3, 3, 2, 4, 5, 6, 6, 2]
 
 
-def counting_sort(arr):
+def counting_sort(arr: List):
     # Write your code here
-    length = len(arr)
+    count = [0] * 7
 
-    lista = []
-    for idx, value in enumerate(arr):
+    for num in arr:
+        count[num] += 1
 
-         lista.append(arr.count(value))
-
-    return lista
+    return count
 
 
-print(counting_sort(arr1))
+print(*counting_sort(arr1))
